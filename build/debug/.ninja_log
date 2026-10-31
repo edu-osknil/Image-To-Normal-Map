@@ -1,0 +1,6 @@
+# ninja log v7
+27	7240	8151873158657246	CMakeFiles/NormalRemap.dir/ValueTypes.cu.obj	5b1c6b871cbed4b4
+38	7391	8151873158763220	CMakeFiles/NormalRemap.dir/GPUFunc.cu.obj	fa2aa92178280945
+15	15165	8151873158530065	CMakeFiles/NormalRemap.dir/NormalRemap.cu.obj	5ca2cafcbe61d19
+15167	19561	8151873310056697	CMakeFiles/NormalRemap.dir/cmake_device_link.obj	c6c82ca357b9032e
+19562	20407	8151873353994931	NormalRemap.exe	30225d75a52ad928

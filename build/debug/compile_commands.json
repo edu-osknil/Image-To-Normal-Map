@@ -1,0 +1,20 @@
+[
+{
+  "directory": "C:/Users/oskar/Documents/GitHub/Image-To-Normal-Map/build/debug",
+  "command": "C:\\PROGRA~1\\NVIDIA~2\\CUDA\\v13.4\\bin\\nvcc.exe -forward-unknown-to-host-compiler -isystem C:\\opencv\\build\\include -D_WINDOWS -Xcompiler=\" /GR /EHsc\" -Xcompiler=\" -Zi -Ob0 -Od /RTC1\" -std=c++17 -arch=native -Xcompiler=-MDd -x cu -rdc=true -c C:\\Users\\oskar\\Documents\\GitHub\\Image-To-Normal-Map\\NormalRemap.cu -o CMakeFiles\\NormalRemap.dir\\NormalRemap.cu.obj -Xcompiler=-FdCMakeFiles\\NormalRemap.dir\\,-FS",
+  "file": "C:/Users/oskar/Documents/GitHub/Image-To-Normal-Map/NormalRemap.cu",
+  "output": "C:/Users/oskar/Documents/GitHub/Image-To-Normal-Map/build/debug/CMakeFiles/NormalRemap.dir/NormalRemap.cu.obj"
+},
+{
+  "directory": "C:/Users/oskar/Documents/GitHub/Image-To-Normal-Map/build/debug",
+  "command": "C:\\PROGRA~1\\NVIDIA~2\\CUDA\\v13.4\\bin\\nvcc.exe -forward-unknown-to-host-compiler -isystem C:\\opencv\\build\\include -D_WINDOWS -Xcompiler=\" /GR /EHsc\" -Xcompiler=\" -Zi -Ob0 -Od /RTC1\" -std=c++17 -arch=native -Xcompiler=-MDd -x cu -rdc=true -c C:\\Users\\oskar\\Documents\\GitHub\\Image-To-Normal-Map\\ValueTypes.cu -o CMakeFiles\\NormalRemap.dir\\ValueTypes.cu.obj -Xcompiler=-FdCMakeFiles\\NormalRemap.dir\\,-FS",
+  "file": "C:/Users/oskar/Documents/GitHub/Image-To-Normal-Map/ValueTypes.cu",
+  "output": "C:/Users/oskar/Documents/GitHub/Image-To-Normal-Map/build/debug/CMakeFiles/NormalRemap.dir/ValueTypes.cu.obj"
+},
+{
+  "directory": "C:/Users/oskar/Documents/GitHub/Image-To-Normal-Map/build/debug",
+  "command": "C:\\PROGRA~1\\NVIDIA~2\\CUDA\\v13.4\\bin\\nvcc.exe -forward-unknown-to-host-compiler -isystem C:\\opencv\\build\\include -D_WINDOWS -Xcompiler=\" /GR /EHsc\" -Xcompiler=\" -Zi -Ob0 -Od /RTC1\" -std=c++17 -arch=native -Xcompiler=-MDd -x cu -rdc=true -c C:\\Users\\oskar\\Documents\\GitHub\\Image-To-Normal-Map\\GPUFunc.cu -o CMakeFiles\\NormalRemap.dir\\GPUFunc.cu.obj -Xcompiler=-FdCMakeFiles\\NormalRemap.dir\\,-FS",
+  "file": "C:/Users/oskar/Documents/GitHub/Image-To-Normal-Map/GPUFunc.cu",
+  "output": "C:/Users/oskar/Documents/GitHub/Image-To-Normal-Map/build/debug/CMakeFiles/NormalRemap.dir/GPUFunc.cu.obj"
+}
+]

@@ -1,0 +1,30 @@
+{
+    "version": 3,
+    
+    "configurePresets": [
+        {
+            "name": "windows-debug",
+            "displayName": "Windows Debug Build",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_CXX_STANDARD": "17",
+                "CMAKE_CUDA_STANDARD": "17",
+                "CMAKE_CUDA_ARCHITECTURES": "native",
+                "CMAKE_CUDA_SEPARABLE_COMPILATION": "ON",
+                "OpenCV_DIR": "C:/opencv/build/x64/vc16/lib"
+            },
+            "environment": {
+                "PATH": "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.4/bin;$penv{PATH}"
+            }
+        }
+    ],
+
+    "buildPresets": [
+        {
+            "name": "build-debug",
+            "configurePreset": "windows-debug"
+        }
+    ]
+}
