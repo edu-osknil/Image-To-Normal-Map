@@ -74,59 +74,6 @@ public:
         cudaMemcpy(image.data, gpuImgPtr, imgSize, cudaMemcpyDeviceToHost);
         cudaFree(gpuImgPtr);
     }
-
-    static float* CreateKernel(const int kernelSize, float sigma, int radius){
-        float* kernelAdress = nullptr;
-        size_t byteSize = kernelSize * kernelSize * sizeof(float);
-        cudaMalloc(&kernelAdress, byteSize);
-        
-        dim3 block(kernelSize, kernelSize);
-        dim3 grid(1, 1);
-        GenerateGpuKernel<<<grid, block, byteSize>>>(kernelAdress, kernelSize, radius, sigma);
-        return kernelAdress;
-    }
-
-    static void BlurImage(cv::Mat& image, const unsigned int blurIterations){
-        const int kernelSize = 5;
-        float sigma = (float)kernelSize / 6;
-        int radius = kernelSize / 2;
-        float* kernelPointer = CreateKernel(kernelSize, sigma, radius);
-        size_t byteData = image.step * image.rows;
-        
-        unsigned char* deviceInImgAdr = nullptr;
-        cudaMalloc(&deviceInImgAdr, byteData);
-        cudaMemcpy(deviceInImgAdr, image.data, byteData, cudaMemcpyHostToDevice);
-
-        unsigned char* deviceOutImgAdr = nullptr;
-        cudaMalloc(&deviceOutImgAdr, byteData);
-        cudaMemcpy(deviceOutImgAdr, image.data, byteData, cudaMemcpyHostToDevice);
-
-        dim3 block(16, 16);
-        dim3 grid(
-            (image.cols + block.x - 1) / block.x,
-            (image.rows + block.y - 1) / block.y
-        );
-        
-        for (unsigned int i = 0; i < blurIterations; i++){
-            std::swap(deviceInImgAdr, deviceOutImgAdr);
-            CudaBlurImage<<<grid, block>>>(
-                deviceInImgAdr,
-                deviceOutImgAdr,
-                image.cols,
-                image.rows,
-                image.step,
-                radius,
-                kernelSize,
-                kernelPointer
-            );     
-        }
-        cudaDeviceSynchronize();
-        
-        cudaMemcpy(image.data, deviceOutImgAdr, byteData, cudaMemcpyDeviceToHost);
-        cudaFree(deviceInImgAdr);
-        cudaFree(deviceOutImgAdr);
-        cudaFree(kernelPointer);
-    }
 };
 
 int main(){
@@ -136,7 +83,6 @@ int main(){
     folder += '\\';
     while (true){
         auto [image, imageName] = ImgStorage::ImportImage();
-        CUDACalls::BlurImage(image, 5);
         CUDACalls::RemapImage(image);
         cv::imwrite(
             folder + imageName + ".png",
